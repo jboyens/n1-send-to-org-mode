@@ -4,16 +4,15 @@
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/jboyens/n1-send-to-org-mode.git"
   },
   "engines": {
     "nylas": ">=0.4.56"
   },
   "windowTypes": {
-    "default": true,
-    "composer": true
+    "default": true
   },
-  "description": "Enter a description of your package!",
+  "description": "Send message / selection to org-mode via org-process",
   "dependencies": {
     "openurl": "^1.1.1"
   },

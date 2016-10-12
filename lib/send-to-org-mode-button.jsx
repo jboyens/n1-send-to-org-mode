@@ -1,8 +1,8 @@
 import {React} from 'nylas-exports';
 import {open} from 'openurl';
 
-export default class MyToolbarButton extends React.Component {
-    static displayName = 'MyToolbarButton';
+export default class SendToOrgModeButton extends React.Component {
+    static displayName = 'SendToOrgModeButton';
 
     static propTypes = {
         thread: React.PropTypes.object.isRequired
