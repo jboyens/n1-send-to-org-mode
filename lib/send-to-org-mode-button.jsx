@@ -17,16 +17,17 @@ export default class SendToOrgModeButton extends React.Component {
         var lastDate = this.props.thread.lastMessageReceivedTimestamp.getTime() / 1000;
         var url = "nylas://?subject="+encodeURIComponent(subject)+"&lastDate="+lastDate;
 
-        var encoded_url = encodeURIComponent(url);
-        var encoded_subject = encodeURIComponent(subject);
-        var encoded_selection = encodeURIComponent(this.selection);
+        var encodedUrl = encodeURIComponent(url);
+        var encodedSubject = encodeURIComponent(subject);
+        var encodedSelection = encodeURIComponent(this.selection);
 
-        var action;
-        if (this.selection) {
-            open("org-protocol:/capture:/l/"+ encoded_url + "/" + encoded_subject + "/" + encoded_selection);
-        } else {
-            open("org-protocol:/capture:/l/"+ encoded_url + "/" + encoded_subject);
+        var orgUrl = "org-protocol:/capture:/e/"+ encodedUrl + "/" + encodedSubject;
+        if (!!this.selection) {
+            orgUrl += "/" + encodedSelection;
         }
+
+        open(orgUrl);
+        this.selection = undefined;
     }
 
     _onMouseOver() {
