@@ -1,4 +1,5 @@
 import {React} from 'nylas-exports';
+import {KeyCommandsRegion} from 'nylas-component-kit';
 import {open} from 'openurl';
 
 export default class SendToOrgModeButton extends React.Component {
@@ -10,6 +11,10 @@ export default class SendToOrgModeButton extends React.Component {
 
     shouldComponentUpdate(nextProps) {
         return nextProps.session !== this.props.session;
+    }
+
+    _onCapture() {
+        this._onClick();
     }
 
     _onClick() {
@@ -41,13 +46,21 @@ export default class SendToOrgModeButton extends React.Component {
         }
     }
 
+    _globalHandlers() {
+        return {
+            "org-mode:capture": () => this._onCapture()
+        };
+    }
+
     render() {
         return (
-            <div className="my-package">
-                <button tabIndex="-1" className="btn btn-toolbar" title="Capture to org-mode" onClick={() => this._onClick()} onMouseOver={() => this._onMouseOver()}>
-                <img src="nylas://send-to-org-mode/assets/org-mode-unicorn.svg" />
-                </button>
-            </div>
+            <KeyCommandsRegion globalHandlers={this._globalHandlers()} className="my-package">
+                <div>
+                    <button tabIndex="-1" className="btn btn-toolbar" title="Capture to org-mode" onClick={() => this._onClick()} onMouseOver={() => this._onMouseOver()}>
+                    <img src="nylas://send-to-org-mode/assets/org-mode-unicorn.svg" />
+                    </button>
+                </div>
+            </KeyCommandsRegion>
         );
     }
 }

@@ -17,3 +17,13 @@ www.diegoberrocal.com/blog/2015/08/19/org-protocol/
   (defun org-nylas-open (path)
     (browse-url (concat "nylas://" path)))
 ```
+
+# Keybinding
+Add a global keybinding to capture any selected email
+
+## keymap.json
+``` json
+{
+  "org-mode:capture": "ctrl+alt+shift+l"
+}
+```
