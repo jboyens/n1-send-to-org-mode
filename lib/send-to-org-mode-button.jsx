@@ -43,8 +43,8 @@ export default class SendToOrgModeButton extends React.Component {
     render() {
         return (
             <div className="my-package">
-                <button tabIndex="-1" className="btn btn-toolbar" title="Capture to org-mode">
-                <img src="nylas://send-to-org-mode/assets/org-mode-unicorn.svg" onClick={() => this._onClick()} onMouseOver={() => this._onMouseOver()} />
+                <button tabIndex="-1" className="btn btn-toolbar" title="Capture to org-mode" onClick={() => this._onClick()} onMouseOver={() => this._onMouseOver()}>
+                <img src="nylas://send-to-org-mode/assets/org-mode-unicorn.svg" />
                 </button>
             </div>
         );
