@@ -4,6 +4,7 @@ import {open} from 'openurl';
 
 export default class SendToOrgModeButton extends React.Component {
     static displayName = 'SendToOrgModeButton';
+    static containerStyles = {order: -108}
 
     static propTypes = {
         thread: React.PropTypes.object.isRequired
@@ -55,11 +56,9 @@ export default class SendToOrgModeButton extends React.Component {
     render() {
         return (
             <KeyCommandsRegion globalHandlers={this._globalHandlers()} className="my-package">
-                <div>
-                    <button tabIndex="-1" className="btn btn-toolbar" title="Capture to org-mode" onClick={() => this._onClick()} onMouseOver={() => this._onMouseOver()}>
-                    <img src="nylas://send-to-org-mode/assets/org-mode-unicorn.svg" />
-                    </button>
-                </div>
+                <button tabIndex="-1" className="btn btn-toolbar" title="Capture to org-mode" onClick={() => this._onClick()} onMouseOver={() => this._onMouseOver()}>
+                <img src="nylas://send-to-org-mode/assets/org-mode-unicorn.svg" />
+                </button>
             </KeyCommandsRegion>
         );
     }
